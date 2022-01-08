@@ -4,4 +4,4 @@
 
 ##### BIO
 
-- 🏢 I'm currently working at **Scibids*.
+- 🏢 I'm currently working at **Scibids**.
