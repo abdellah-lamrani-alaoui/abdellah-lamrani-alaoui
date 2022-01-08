@@ -1,7 +1,9 @@
 ### Hi there 👋
 
-#### I'm an adtech Data Scientist.
+I'm a Data Scientist passionate about entrepneurship.
 
 ##### BIO
 
-- 🏢 I'm currently working at **Scibids**.
+- 🏢 I'm currently working at top french AI start **Scibids**.
+- 💬 Ping me about **data science**, **adtech**, **entrepreneurship**, **customer service**
+
