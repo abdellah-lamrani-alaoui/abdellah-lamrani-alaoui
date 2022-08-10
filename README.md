@@ -33,6 +33,7 @@
     current_work = 'CTO @ Teker'
     city = 'Paris, France'
     previous_experiences = ['Head of Data @ Scibids', 'Algorithm Trader Researcher @ BNP']
+    education = ['Ecole Centrale Paris (2017)', 'MVA @ ENS Paris Saclay (2017)'
     hobbies = [
         'Being up all night long chasing bugs...',
         'Tennis', 
