@@ -1,7 +1,7 @@
 
-<h3 align="center">👋 Hi there! I'm Abdellah Lamrani Alaoui, co-founder and CTO @ Teker ✨</h3>
+<h3 align="center">👋 Hi there! I'm Abdellah Lamrani Alaoui, co-founder and CTO @ Presti ✨</h3>
 <p align="center">
-  <a href="https://teker.ai" target="_blank">:link: Teker</a> -
+  <a href="https://presti.ai" target="_blank">:link: Presti</a> -
   <a href="https://www.linkedin.com/in/abdellah-lamrani-alaoui-6288a4a6" target="_blank"> <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin">Linkedin</a> -
   <a href="https://medium.com/@abdellah_lamrani_alaoui" target="_blank">📖 Medium</a> - 
   <a href="mailto:abdellah@teker.ai" target="_blank">:email: abdellah@teker.ai</a>
@@ -11,15 +11,11 @@
 ---
 
 
-## :hammer: A little word about what we are building @Teker
+## :hammer: A little word about what we are building @Presti
 
-✨ People are impressed by Uber’s customer support, which provides a seamless self-service experience with instantaneous in-app response. 
+✨ Presti allows e-tailers to create engaging product visuals in a click, with generative AI. 
 
-:rocket: Teker ambition is to make this experience become the new standard for all companies!
-
-:hammer: Teker is a no-code platform to build a self-service portal to automate customer support interactions. 
-
-:link: Check out our website: <a href="https://teker.ai" target="_blank">Teker</a>
+:link: Check out our website: <a href="https://presti.ai" target="_blank">Presti</a>
 
 
 ## :raising_hand: About me
@@ -30,7 +26,7 @@
  ```python
  class CTO(HeadOfData, Entrepreneur):
     name = 'Abdellah Lamrani Alaoui'
-    current_work = 'CTO @ Teker'
+    current_work = 'CTO @ Presti'
     city = 'Paris, France'
     previous_experiences = ['Head of Data @ Scibids', 'Algorithm Trader Researcher @ BNP']
     education = ['Ecole Centrale Paris (2017)', 'MVA @ ENS Paris Saclay (2017)'
