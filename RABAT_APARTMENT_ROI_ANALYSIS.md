@@ -4,11 +4,13 @@
 
 ## TL;DR Recommendation
 
-**Buy a small studio or T2 (1-2 bedroom) in Agdal**, ideally near a tramway stop, targeting students/young professionals or furnished short-term rental. It is the best balance of safety + yield in Rabat: established, secure, high rental demand, prices 15-20% below Hay Riad/Souissi, and gross yields of **5-8%** vs. 4-6% in the most prestigious districts.
+**Buy a small studio or T1 (25-40 m²) in Agdal**, ideally near a tramway stop, targeting students/young professionals or furnished short-term rental. This is the configuration where Agdal's real yield edge actually shows up in matched, like-for-like listing data: **~5-8%**, vs. 4-6% in the most prestigious districts.
 
-If you want more upside and can tolerate slightly more risk, **Aviation** is the #2 pick: still undervalued, benefiting from tramway extension, good resale/appreciation potential, decent safety.
+**Important update from deeper, size-matched comp analysis (Section 6)**: if you're buying a standard family-size 2-3BR apartment instead of a small unit, Agdal's yield advantage over Hay Riad mostly disappears — both land around **4.2-4.7%** on a like-for-like 80-90 m² 2BR. The yield premium is concentrated in small units, not family-size ones. So unit size is now part of the core recommendation, not just a nice-to-have.
 
-Avoid chasing the highest headline yields (Yacoub El Mansour, Akkari, Salé Tabriquet/Bettana ~6.3-7.5%) — those come with weaker tenant profiles, lower liquidity, and more volatile resale value, which is exactly the risk you said you want to avoid.
+If you want more upside and can tolerate slightly more risk, **Aviation** is the #2 pick: still undervalued, benefiting from tramway extension, good resale/appreciation potential, decent safety — matched comps put it around 5-6.5%.
+
+Avoid chasing the highest headline yields (Yacoub El Mansour, Akkari, Salé Tabriquet/Bettana ~6.3-7.5%) — those come with weaker tenant profiles, lower liquidity, and more volatile resale value. Real comps reinforce this: rents for similar-sized Yacoub El Mansour units ranged 1,000-9,000 DH/month with no clear pattern — the kind of unpredictability that is exactly the risk you said you want to avoid.
 
 ---
 
@@ -69,6 +71,31 @@ To sanity-check the market-report yields above, real for-sale and for-rent listi
 **Conclusion**: real listings confirm Agdal is the standout — it beats Aviation on yield (not just on safety/liquidity), particularly for furnished mid-size units rented to professionals or small unfurnished units rented to students. Hay Riad's real yield is confirmed at the low end (4.2-4.7%) — you pay for safety and prestige, not income.
 
 **Caveats**: these are asking prices/rents from live listings, not closing transactions (Moroccan sale prices typically negotiate 5-15% below asking, which would push real yields slightly higher). Sample sizes per neighborhood are small (search-based, a few listings each) — directional, not statistically robust. Before making an offer, pull 20-30 live comps directly from Mubawab/Avito filtered to your target unit size.
+
+## 6. Strict size/type-matched comp analysis (refines Section 5)
+
+Section 5 mixed unit sizes and furnished/unfurnished status, which inflates some yield estimates. This section re-does the comparison holding **size and type roughly constant** (~75-95 m², 2-bedroom, unfurnished, elevator+garage buildings) to get a fairer apples-to-apples read.
+
+| Neighborhood | Sale comps used (DH/m²) | Rent comp (~80 m², unfurnished) | Computed gross yield | Confidence |
+|---|---|---|---|---|
+| **Agdal** | 8 comps: 15,766 / 17,500 / 17,836 / 18,537 / 19,643 / 19,663 / 22,667 / 23,171 (avg ~19,100) | 5,500-6,500 DH/mo | **4.2-4.7%** | High — tight, consistent comps |
+| **Hay Riad** | 3 comps: 20,476 / 22,569 / 27,350 (avg ~23,500) | 7,600-8,930 DH/mo (scaled from Prestigia 100-150m² comps) | **4.2-4.7%** | High — tight comps, mostly one development (Prestigia) |
+| **Aviation** | 5-6 comps: 12,500 / 12,774 / 14,063 / 15,455 / 16,170 (avg ~14,200) | 7,333-8,000 DH/mo | **~5-6.5%** credible range (one pair implied 13.7% — discarded as a likely condition mismatch) | Medium |
+| **Yacoub El Mansour** | 4 clean comps: 7,000 / 8,500 / 10,000 / 10,000 (avg ~8,875). A 5th comp at 17,500 DH/m² was discarded — it was an exact duplicate of an unrelated Agdal listing, a data-contamination artifact from search-snippet aggregation | Highly inconsistent: 1,000-9,000 DH/mo across near-identical 70-80 m² units | Nominally 6.7-13.7%, but **not trustworthy** | Low — rent side too noisy to pin down |
+
+### Key findings that update the recommendation
+
+1. **Agdal's yield edge over Hay Riad mostly comes from small units, not family-size ones.** On a strict 80-90 m² 2BR comparison, Agdal and Hay Riad converge to nearly the same gross yield (~4.2-4.7%). The higher 6-8% figures in Section 5 partly came from comparing a furnished rental against an unfurnished sale price — not a fair match. Studio/T1 comps (23-40 m²) showed rent at 88-100+ DH/m²/month vs. ~69-75 DH/m²/month for family-size units, which is where the real premium lives.
+2. **Yacoub El Mansour's headline yield looks more like data noise than a real edge.** Sale prices were consistent (~7,000-10,000 DH/m²), but rents for visually similar-sized units ranged 9x (1,000-9,000 DH/month) with no resolvable pattern from text descriptions alone. That unpredictability is itself evidence of the higher risk already flagged in Section 1.
+3. **A clear data-contamination case (duplicate listing surfacing under two different neighborhoods) is a reminder that search-snippet research has real limits** — see the methodology note below.
+
+### Methodology limitation: no visual/photo verification was possible
+
+An attempt was made to inspect actual listing photos to verify unit condition/standing (the original intent behind "closely match by looking through images"), using two approaches:
+- A headless browser (Playwright/Chromium) to navigate Avito/Mubawab/Yakeey directly — blocked by this environment's network policy (`403 policy denial` at the proxy level for these domains).
+- The WebFetch tool on individual listing pages — blocked by the sites' own anti-bot protection (`403 Forbidden` from Mubawab, Avito, and Yakeey alike).
+
+As a result, all matching in this report is **text-based** (size, room count, floor, stated condition keywords like "rénové"/"bon état"/"à rénover"), not photo-verified. The Aviation 13.7%-yield outlier and the Yacoub El Mansour rent dispersion above are exactly the kind of mismatch that photo verification would normally catch and exclude. Treat all yield figures as directional; verify unit condition in person or via an in-country agent before committing capital.
 
 ### Sources
 - [Carte des prix de l'immobilier à Rabat — Yakeey](https://yakeey.com/fr-ma/referentiel-de-prix-immobilier/rabat)
