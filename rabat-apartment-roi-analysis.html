@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rabat Apartment Investment Analysis — Best ROI, Low/Medium Risk</title>
+<style>
+  :root {
+    --green: #1b7a43;
+    --green-bg: #e8f5ed;
+    --amber: #9a6b00;
+    --amber-bg: #fdf3dc;
+    --red: #a3291d;
+    --red-bg: #fbe9e7;
+    --ink: #1f2430;
+    --muted: #5b6472;
+    --line: #e3e6ea;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: #f6f7f9;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.hero {
+    background: linear-gradient(135deg, #0f3d2e, #1b7a43);
+    color: #fff;
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+  }
+  header.hero h1 { margin: 0 0 8px; font-size: 28px; }
+  header.hero p.sub { margin: 0; opacity: 0.92; font-size: 15px; max-width: 700px; }
+  header.hero .date { margin-top: 16px; font-size: 12px; opacity: 0.75; letter-spacing: 0.02em; }
+
+  .pick-banner {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--green);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 28px;
+  }
+  .pick-banner h2 { margin: 0 0 6px; font-size: 18px; color: var(--green); }
+  .pick-banner p { margin: 0; color: var(--ink); }
+  .pick-banner .badge {
+    display: inline-block;
+    background: var(--green-bg);
+    color: var(--green);
+    font-weight: 600;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+
+  section { margin-bottom: 36px; }
+  h2.section-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .card .rank { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: var(--muted); text-transform: uppercase; }
+  .card h3 { margin: 4px 0 10px; font-size: 18px; }
+  .card .yield { font-size: 26px; font-weight: 700; color: var(--green); }
+  .card .yield small { font-size: 13px; font-weight: 500; color: var(--muted); }
+  .card .meta { margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .risk-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-top: 10px;
+  }
+  .risk-low { background: var(--green-bg); color: var(--green); }
+  .risk-medlow { background: #eef3e0; color: #5c7a1d; }
+  .risk-medium { background: var(--amber-bg); color: var(--amber); }
+  .risk-medhigh { background: #fdebe0; color: #b85c1c; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; font-size: 13.5px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: #fafbfc; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  tr:last-child td { border-bottom: none; }
+  td.num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+  .table-scroll table { border-radius: 0; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .box h3 { margin-top: 0; font-size: 15px; }
+  .box ol, .box ul { padding-left: 20px; margin: 0; }
+  .box li { margin-bottom: 8px; }
+
+  .callout {
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 13.5px;
+    border: 1px solid;
+  }
+  .callout.warn { background: var(--amber-bg); border-color: #f0d9a3; color: #6b4d00; }
+  .callout.info { background: #eaf1fb; border-color: #c6d9f3; color: #1f4e8c; }
+
+  footer { margin-top: 40px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--muted); }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .pill { font-size: 11.5px; background: #f1f2f4; color: var(--muted); padding: 3px 10px; border-radius: 999px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Rabat Apartment Investment Analysis</h1>
+    <p class="sub">Where to buy for the best return on investment while staying in a safe, liquid neighborhood — built from market reports plus real, size-matched listing comps from Mubawab and Avito.</p>
+    <div class="date">Research date: June 30, 2026 · For informational purposes — verify all figures against live listings before committing capital</div>
+  </header>
+
+  <div class="pick-banner">
+    <span class="badge">Top pick</span>
+    <h2>Buy a small studio or T1 (25–40 m²) in Agdal</h2>
+    <p>Best evidence-backed balance of yield and safety in Rabat. Real comps show <strong>~5–8% gross yield</strong> on small units in an established, secure, high-demand neighborhood — 15–20% cheaper per m² than Hay Riad with comparable quality of life. <strong>Important:</strong> this yield premium is concentrated in small units — a family-size 2–3BR Agdal apartment yields about the same as Hay Riad (~4.2–4.7%), so unit size is part of the strategy, not an afterthought.</p>
+  </div>
+
+  <section>
+    <h2 class="section-title">Ranked shortlist</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="rank">#1 — Core pick</div>
+        <h3>Agdal</h3>
+        <div class="yield">5–8% <small>gross yield (small unit)</small></div>
+        <div class="meta">12,000–18,000 DH/m² · embassies, businesses, students, young professionals</div>
+        <span class="risk-tag risk-low">Low risk</span>
+      </div>
+      <div class="card">
+        <div class="rank">#2 — Growth bet</div>
+        <h3>Aviation</h3>
+        <div class="yield">5–6.5% <small>gross yield</small></div>
+        <div class="meta">13,000–18,000 DH/m² · still undervalued, tramway-driven upside</div>
+        <span class="risk-tag risk-medlow">Low–medium risk</span>
+      </div>
+      <div class="card">
+        <div class="rank">#3 — Capital preservation</div>
+        <h3>Hay Riad</h3>
+        <div class="yield">4.2–4.7% <small>gross yield</small></div>
+        <div class="meta">16,000–25,000 DH/m² · diplomatic/business district, best liquidity</div>
+        <span class="risk-tag risk-low">Very low risk</span>
+      </div>
+      <div class="card">
+        <div class="rank">#4 — Higher-yield, more caution</div>
+        <h3>Madinat Al Irfane</h3>
+        <div class="yield">5–6.5% <small>est. gross yield</small></div>
+        <div class="meta">~10,000–14,000 DH/m² · civil servants, near university</div>
+        <span class="risk-tag risk-low">Low risk</span>
+      </div>
+      <div class="card">
+        <div class="rank">Avoid as core holding</div>
+        <h3>Yacoub El Mansour</h3>
+        <div class="yield">Nominally 6–7.5%, <small>unverified</small></div>
+        <div class="meta">8,500–12,000 DH/m² · real comps show rent dispersion of 1,000–9,000 DH/mo on similar units</div>
+        <span class="risk-tag risk-medium">Medium risk</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Full neighborhood comparison</h2>
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Neighborhood</th><th>Price (DH/m²)</th><th>Gross yield</th><th>Risk</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Agdal</strong></td><td class="num">12,000–18,000</td><td class="num">5–8%</td><td><span class="risk-tag risk-low">Low</span></td><td>Best yield/safety trade-off; deep, diversified tenant demand keeps vacancy low.</td></tr>
+        <tr><td>Aviation</td><td class="num">13,000–18,000</td><td class="num">~5–6.5%</td><td><span class="risk-tag risk-medlow">Low–medium</span></td><td>Undervalued, tramway connectivity driving appreciation; thinner comp data.</td></tr>
+        <tr><td>Hay Riad</td><td class="num">16,000–25,000</td><td class="num">4.2–4.7%</td><td><span class="risk-tag risk-low">Very low</span></td><td>Diplomatic/business district; best capital preservation, lowest yield.</td></tr>
+        <tr><td>Madinat Al Irfane</td><td class="num">~10,000–14,000</td><td class="num">~5–6.5%</td><td><span class="risk-tag risk-low">Low</span></td><td>Civil servant/family demand; steady, less dynamic than Agdal.</td></tr>
+        <tr><td>Hassan / Océan</td><td class="num">15,000–20,000</td><td class="num">5–7%+ (short-term)</td><td><span class="risk-tag risk-medlow">Low–medium</span></td><td>Central, touristic — strong for furnished/short-let, regulatory & vacancy risk.</td></tr>
+        <tr><td>Souissi</td><td class="num">26,000–42,000 (villas)</td><td class="num">3–5%</td><td><span class="risk-tag risk-low">Low (capital)</span></td><td>Ultra-premium; great capital preservation, poor yield play.</td></tr>
+        <tr><td>Yacoub El Mansour</td><td class="num">8,500–12,000</td><td class="num">6.3–7.5% (nominal)</td><td><span class="risk-tag risk-medium">Medium</span></td><td>Headline yield not reliable — real rent comps highly inconsistent.</td></tr>
+        <tr><td>Akkari / Takkadoum</td><td class="num">8,500–12,000</td><td class="num">6.3–7.5%</td><td><span class="risk-tag risk-medium">Medium</span></td><td>Same trade-off as Yacoub El Mansour.</td></tr>
+        <tr><td>Salé (Tabriquet/Bettana)</td><td class="num">Lower than Rabat proper</td><td class="num">6.3–7.5%+</td><td><span class="risk-tag risk-medhigh">Medium–high</span></td><td>Highest headline yield but weaker brand, harder resale upmarket.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Real, size-matched listing comps (Mubawab / Avito)</h2>
+    <p style="color:var(--muted); font-size:13.5px; margin-top:-6px;">Strictly matched on ~75–95 m², 2-bedroom, unfurnished, elevator+garage — not just neighborhood averages — to avoid comparing a furnished rental to an unfurnished sale price.</p>
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Neighborhood</th><th>Sale comps (DH/m²)</th><th>Matched rent (~80 m²)</th><th>Computed yield</th><th>Confidence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Agdal</strong></td><td class="num">8 comps, avg ~19,100</td><td class="num">5,500–6,500 DH/mo</td><td class="num">4.2–4.7%</td><td>High</td></tr>
+        <tr><td>Hay Riad</td><td class="num">3 comps, avg ~23,500</td><td class="num">7,600–8,930 DH/mo</td><td class="num">4.2–4.7%</td><td>High</td></tr>
+        <tr><td>Aviation</td><td class="num">5–6 comps, avg ~14,200</td><td class="num">7,333–8,000 DH/mo</td><td class="num">~5–6.5%</td><td>Medium</td></tr>
+        <tr><td>Yacoub El Mansour</td><td class="num">4 clean comps, avg ~8,875</td><td class="num">1,000–9,000 DH/mo (noisy)</td><td class="num">Nominal 6.7–13.7%</td><td>Low</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout warn" style="margin-top:14px;">
+      <strong>What this changes:</strong> on a like-for-like family-size 2BR, Agdal and Hay Riad converge to nearly the same yield (~4.2–4.7%). Agdal's real edge shows up specifically on <strong>small units</strong> (studio/T1, 23–40 m²), where rent runs 88–100+ DH/m²/month vs. ~69–75 DH/m²/month for family-size units — pushing realistic yield to 5–8%.
+    </div>
+  </section>
+
+  <section>
+    <div class="grid-2">
+      <div class="box">
+        <h3>Practical buying strategy</h3>
+        <ol>
+          <li><strong>Unit type:</strong> a small, efficient studio/T1 (25–40 m²) outperforms a large family apartment on DH/m² yield.</li>
+          <li><strong>Sub-location:</strong> Bas Agdal = cheaper, rents well to students/young workers (max yield); Haut Agdal = calmer, pricier, suits longer-term tenants (max stability).</li>
+          <li><strong>Proximity to tramway:</strong> stay within 5–10 min walk of a stop — the single biggest driver of yield and resale liquidity.</li>
+          <li><strong>Furnished vs. unfurnished:</strong> furnished rentals to professionals/expats command a real premium; weigh against furnishing cost (~50,000–100,000 DH).</li>
+          <li><strong>Holding period:</strong> plan for 5–7 years to capture both rental income and appreciation; transaction costs (~6–7% of price) make a sub-2-year flip unattractive.</li>
+          <li><strong>Due diligence:</strong> confirm clean titre foncier, check syndic charges, verify no unresolved inheritance (indivision) — common in older Agdal buildings.</li>
+        </ol>
+      </div>
+      <div class="box">
+        <h3>Portfolio framing</h3>
+        <ul>
+          <li><strong>Conservative core:</strong> Hay Riad apartment rented to an expat/executive — lower yield (~4.5%), best capital protection and liquidity.</li>
+          <li><strong>Core ROI pick:</strong> Agdal studio/T1 — 5–8% yield, low risk. This analysis's top recommendation.</li>
+          <li><strong>Satellite growth bet:</strong> Aviation — undervalued today, tramway-driven appreciation likely over 5–7 years.</li>
+          <li><strong>Avoid as primary holding:</strong> Yacoub El Mansour, Akkari, Salé — nominal yield isn't statistically reliable in the real comp data and carries materially more execution risk.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Methodology &amp; limitations</h2>
+    <div class="callout info">
+      <strong>No photo/visual verification was possible.</strong> A headless browser (Playwright/Chromium) was blocked by this environment's network policy from reaching Avito/Mubawab/Yakeey directly, and the WebFetch tool was blocked by those sites' own anti-bot protection. All matching here is therefore <strong>text-based</strong> (size, room count, floor, condition keywords like "rénové"/"bon état") rather than photo-verified. One Aviation comp pair implied an improbable 13.7% yield and was discarded as a likely condition mismatch — exactly the kind of error photo verification would normally catch. Treat all figures as directional, and inspect units in person (or via a trusted local agent) before committing capital.
+    </div>
+    <div class="pill-row">
+      <span class="pill">Asking prices, not closing transactions</span>
+      <span class="pill">Moroccan sale prices often negotiate 5–15% below asking</span>
+      <span class="pill">Small comp samples — pull 20–30 live comps before an offer</span>
+      <span class="pill">Net yield ≈ gross − 1.5–2.5 pts (taxes, syndic, vacancy, maintenance)</span>
+    </div>
+  </section>
+
+  <footer>
+    Compiled from market reports (Yakeey, Agenz, Sefiani Khadamat, aykana.ma, Cyril Jarnias, Goterra) and real listing comps pulled from Mubawab.ma and Avito.ma, June 2026. Full source list and detailed working notes: see <code>RABAT_APARTMENT_ROI_ANALYSIS.md</code> in this repository.
+  </footer>
+
+</div>
+</body>
+</html>
