@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>~2M DH Apartment Opportunities — Agdal, Hivernage, Guéliz</title>
+<style>
+  :root {
+    --ivory: #FAF9F5;
+    --white: #FFFFFF;
+    --slate: #141413;
+    --gray-100: #F0EEE6;
+    --gray-300: #D1CFC5;
+    --gray-500: #87867F;
+    --gray-700: #3D3D3A;
+
+    --clay: #D97757;
+    --oat: #E3DACC;
+    --olive: #788C5D;
+    --rust: #B04A3F;
+    --info: #5C7CA3;
+
+    --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+    --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+
+    --radius-panel: 12px;
+    --radius-row: 8px;
+    --radius-pill: 999px;
+    --border: 1.5px solid var(--gray-300);
+    --shadow-sm: 0 1px 2px rgba(20,20,19,0.06);
+    --shadow-md: 0 4px 10px rgba(20,20,19,0.08);
+    --shadow-lg: 0 12px 28px rgba(20,20,19,0.12);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--sans); color: var(--slate); background: var(--ivory); line-height: 1.5; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 56px 24px 120px; }
+
+  .eyebrow { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray-500); }
+
+  header.hero { background: var(--slate); color: var(--ivory); border-radius: var(--radius-panel); padding: 36px 32px; margin-bottom: var(--sp-6); }
+  header.hero .eyebrow { color: var(--oat); opacity: 0.85; }
+  header.hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 4vw, 38px); margin: 8px 0 10px; }
+  header.hero p.sub { margin: 0; max-width: 720px; opacity: 0.85; }
+  header.hero .meta { font-family: var(--mono); font-size: 12px; opacity: 0.65; margin-top: 18px; }
+
+  .callout { border-radius: var(--radius-row); padding: 16px 18px; font-size: 13.5px; border: var(--border); background: var(--gray-100); color: var(--gray-700); margin-bottom: var(--sp-6); }
+  .callout.info { background: #eaf1fb; border-color: #c6d9f3; color: #1f4e8c; }
+  .callout.warning { background: #fbeee8; border-color: #ecc3ae; color: #8a3d1f; }
+  .callout strong { color: var(--slate); }
+
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--sp-3); margin-bottom: var(--sp-7); }
+  .stat-card { background: var(--white); border: var(--border); border-radius: var(--radius-panel); padding: 16px 18px; }
+  .stat-card .label { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-500); }
+  .stat-card .figure { font-family: var(--serif); font-size: 26px; font-weight: 500; margin-top: 4px; }
+
+  section.area { margin-bottom: var(--sp-8); }
+  .area-header { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-4); border-bottom: var(--border); padding-bottom: var(--sp-3); margin-bottom: var(--sp-4); flex-wrap: wrap; }
+  .area-header h2 { font-family: var(--serif); font-weight: 500; font-size: 25px; margin: 0; }
+  .area-header .area-sub { font-family: var(--mono); font-size: 11.5px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .listing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--sp-4); }
+
+  .listing-card { background: var(--white); border: var(--border); border-radius: var(--radius-panel); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease; }
+  .listing-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--slate); }
+  .listing-card .top-row { display: flex; justify-content: space-between; align-items: center; }
+  .listing-card .source { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-500); }
+  .fit-tag { font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: var(--radius-pill); }
+  .fit-on { background: #eef1e9; color: var(--olive); }
+  .fit-under { background: #e6edf5; color: var(--info); }
+  .fit-over { background: #f7e9e2; color: #a35a30; }
+  .listing-card h3 { font-family: var(--serif); font-weight: 500; font-size: 16.5px; margin: 2px 0 0; }
+  .listing-card .price { font-family: var(--serif); font-size: 25px; font-weight: 500; margin: 2px 0; }
+  .listing-card .price small { font-family: var(--mono); font-size: 11.5px; font-weight: 400; color: var(--gray-500); margin-left: 4px; }
+  .listing-card .meta-line { font-family: var(--mono); font-size: 12px; color: var(--gray-700); }
+  .listing-card .note { font-size: 12.5px; color: var(--gray-700); font-style: italic; }
+  .listing-card a.link { font-family: var(--mono); font-size: 12px; color: var(--clay); text-decoration: none; border-bottom: 1px dotted var(--clay); margin-top: 6px; display: inline-block; width: fit-content; }
+  .listing-card a.link:hover { color: var(--rust); border-color: var(--rust); }
+
+  .browse-card { background: var(--oat); border-radius: var(--radius-panel); padding: 18px 20px; }
+  .browse-card .source { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-700); }
+  .browse-card h3 { font-family: var(--serif); font-weight: 500; font-size: 16px; margin: 4px 0 8px; }
+  .browse-card ul { margin: 0 0 10px; padding-left: 18px; font-size: 13px; }
+  .browse-card li { margin-bottom: 3px; }
+  .browse-card a.link { font-family: var(--mono); font-size: 12px; color: var(--gray-700); border-bottom: 1px dotted var(--gray-700); text-decoration: none; }
+
+  h3.section-title { font-family: var(--mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-500); margin: var(--sp-5) 0 var(--sp-3); }
+
+  footer { margin-top: var(--sp-7); font-family: var(--mono); font-size: 11.5px; color: var(--gray-500); border-top: var(--border); padding-top: var(--sp-4); }
+  footer a { color: var(--gray-500); }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 32px 16px 80px; }
+    .area-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Apartment Shortlist · ~2,000,000 DH Budget</div>
+    <h1>Real Listings: Agdal (Rabat), Hivernage &amp; Guéliz (Marrakech)</h1>
+    <p class="sub">Actual for-sale apartment listings near a 2M DH budget, pulled from 6 different Moroccan real estate sites, with direct links. Agdal is presented first per request, followed by Hivernage and Guéliz.</p>
+    <div class="meta">Compiled June 30, 2026 · Sources: Yakeey, Agenz, Mubawab, Capalm Rabat, Avito, Sarouty</div>
+  </header>
+
+  <div class="callout warning">
+    <strong>Read before clicking through.</strong> These are live asking prices pulled via search at compile time — not independently re-verified against each page (this environment's network policy and the listing sites' own anti-bot protections block direct page fetches; see methodology note at the bottom). Treat every price/size/floor detail as "to confirm," not final. A few entries are labeled <em>browse</em> rather than a single listing — for those, a stable individual link could not be confirmed via search, so the category/search page is given instead along with observed price points nearby.
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card"><div class="label">Target budget</div><div class="figure">2.0M DH</div></div>
+    <div class="stat-card"><div class="label">Confirmed listings</div><div class="figure">9</div></div>
+    <div class="stat-card"><div class="label">Sites checked</div><div class="figure">6</div></div>
+    <div class="stat-card"><div class="label">Areas covered</div><div class="figure">3</div></div>
+  </div>
+
+  <section class="area" id="agdal">
+    <div class="area-header">
+      <h2>1. Agdal, Rabat</h2>
+      <div class="area-sub">~14,000–19,000 DH/m² typical · low risk</div>
+    </div>
+
+    <div class="listing-grid">
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Agenz</span><span class="fit-tag fit-on">On budget</span></div>
+        <h3>93 m² · 2 bedrooms · 1st floor</h3>
+        <div class="price">2,000,000 DH <small>≈21,500 DH/m²</small></div>
+        <div class="meta-line">Elevator · garage · Rue Melouiya area</div>
+        <a class="link" href="https://agenz.ma/fr/annonces/immo-rabat/vente-appartements/agdal/468539" target="_blank" rel="noopener">agenz.ma/.../agdal/468539 →</a>
+      </div>
+
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Agenz</span><span class="fit-tag fit-over">Slightly over</span></div>
+        <h3>93 m² · 2 bedrooms</h3>
+        <div class="price">2,100,000 DH <small>≈22,600 DH/m²</small></div>
+        <div class="meta-line">Rue Aaokba, near Rue Oum Rabiaa</div>
+        <a class="link" href="https://agenz.ma/fr/annonces/immo-rabat/vente-appartements/agdal/561626" target="_blank" rel="noopener">agenz.ma/.../agdal/561626 →</a>
+      </div>
+
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Yakeey</span><span class="fit-tag fit-under">Under budget</span></div>
+        <h3>106 m² · Agdal</h3>
+        <div class="price">1,790,000 DH <small>≈16,900 DH/m²</small></div>
+        <div class="meta-line">Ref. RA154164</div>
+        <a class="link" href="https://yakeey.com/fr-ma/acheter-appartement-rabat-agdal-RA154164" target="_blank" rel="noopener">yakeey.com/.../RA154164 →</a>
+      </div>
+
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Capalm Rabat (agency)</span><span class="fit-tag fit-over">Stretch</span></div>
+        <h3>140 m² · Haut Agdal · ground floor</h3>
+        <div class="price">2,600,000 DH <small>≈18,600 DH/m²</small></div>
+        <div class="meta-line">2 living rooms · master suite + 2BR · elevator · garage</div>
+        <div class="note">~600k over target, but largest/most family-suited unit found.</div>
+        <a class="link" href="https://capalmrabat.com/biens/appartement/rabat/vente-appartement-haut-agdal-rabat/" target="_blank" rel="noopener">capalmrabat.com/.../haut-agdal-rabat →</a>
+      </div>
+    </div>
+
+    <h3 class="section-title">Browse for more (no single confirmed permalink)</h3>
+    <div class="listing-grid">
+      <div class="browse-card">
+        <span class="source">Mubawab</span>
+        <h3>Agdal apartments for sale</h3>
+        <ul>
+          <li>140 m², 3BR, due-for-reform, terrace, lift — ≈1,900,000 DH</li>
+          <li>96 m², furnished, 3rd floor, secured — ≈2,000,000 DH</li>
+          <li>90 m², 2BR, &lt;10 yrs old, garden+lift — ≈2,100,000 DH</li>
+        </ul>
+        <a class="link" href="https://www.mubawab.ma/en/sd/rabat/agdal/apartments-for-sale" target="_blank" rel="noopener">mubawab.ma — Agdal listings →</a>
+      </div>
+
+      <div class="browse-card">
+        <span class="source">Avito</span>
+        <h3>Agdal apartments for sale</h3>
+        <ul>
+          <li>87 m² — ≈1,800,000 DH</li>
+          <li>105 m², 2BR — ≈1,600,000 DH</li>
+          <li>209 m² — ≈2,200,000 DH</li>
+        </ul>
+        <a class="link" href="https://www.avito.ma/fr/rabat/agdal/appartements-%C3%A0_vendre" target="_blank" rel="noopener">avito.ma — Agdal listings →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="hivernage">
+    <div class="area-header">
+      <h2>2. Hivernage, Marrakech</h2>
+      <div class="area-sub">~9,500–20,000 DH/m² observed · very low risk, premium/prestige</div>
+    </div>
+
+    <div class="listing-grid">
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Agenz</span><span class="fit-tag fit-under">Well under budget</span></div>
+        <h3>127 m² · 2 bedrooms · 2nd floor</h3>
+        <div class="price">1,250,000 DH <small>≈9,800 DH/m²</small></div>
+        <div class="meta-line">Bright, Atlas mountain view</div>
+        <a class="link" href="https://agenz.ma/fr/annonces/immo-marrakech/vente-appartements/hivernage/667523" target="_blank" rel="noopener">agenz.ma/.../hivernage/667523 →</a>
+      </div>
+
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Agenz</span><span class="fit-tag fit-under">Well under budget</span></div>
+        <h3>79 m² · 2 bedrooms</h3>
+        <div class="price">880,000 DH <small>≈11,100 DH/m²</small></div>
+        <div class="meta-line">Between Guéliz and Hivernage</div>
+        <a class="link" href="https://agenz.ma/fr/annonces/immo-marrakech/vente-appartements/hivernage/175903" target="_blank" rel="noopener">agenz.ma/.../hivernage/175903 →</a>
+      </div>
+
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Yakeey</span><span class="fit-tag fit-under">Under budget</span></div>
+        <h3>62 m² · Hivernage</h3>
+        <div class="price">1,233,540 DH <small>≈19,900 DH/m²</small></div>
+        <div class="meta-line">Ref. MI061744</div>
+        <a class="link" href="https://yakeey.com/fr-ma/acheter-appartement-marrakech-hivernage-MI061744" target="_blank" rel="noopener">yakeey.com/.../MI061744 →</a>
+      </div>
+
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Mubawab</span><span class="fit-tag fit-under">Under budget</span></div>
+        <h3>84 m² · 2 bedrooms · "penthouse"</h3>
+        <div class="price">1,095,000 DH <small>≈13,000 DH/m²</small></div>
+        <div class="meta-line">Triangle d'Or, near Avenue Mohamed V</div>
+        <div class="note">Price/description pairing from aggregated search summary — confirm details on page.</div>
+        <a class="link" href="https://www.mubawab.ma/fr/a/7549246/appartement-a-vendre-en-face-du-palais-des-congr%C3%A9s" target="_blank" rel="noopener">mubawab.ma/fr/a/7549246 →</a>
+      </div>
+    </div>
+
+    <h3 class="section-title">Browse for more</h3>
+    <div class="listing-grid">
+      <div class="browse-card">
+        <span class="source">Avito</span>
+        <h3>Hivernage apartments</h3>
+        <ul>
+          <li>General Hivernage listings, including vacation/short-let inventory</li>
+        </ul>
+        <a class="link" href="https://www.avito.ma/fr/marrakech/hivernage/appartements" target="_blank" rel="noopener">avito.ma — Hivernage listings →</a>
+      </div>
+      <div class="browse-card">
+        <span class="source">Mubawab</span>
+        <h3>Hivernage — other observed</h3>
+        <ul>
+          <li>"Marrakech Plaza" building — ≈2,600,000–2,900,000 DH (over budget)</li>
+          <li>105 m² + 162 m² private garden, 2BR, ground floor — price not confirmed</li>
+        </ul>
+        <a class="link" href="https://www.mubawab.ma/en/sd/marrakech/hivernage/apartments-for-sale" target="_blank" rel="noopener">mubawab.ma — Hivernage listings →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="gueliz">
+    <div class="area-header">
+      <h2>3. Guéliz, Marrakech</h2>
+      <div class="area-sub">~12,600–22,000 DH/m² typical · low risk, most liquid</div>
+    </div>
+
+    <div class="listing-grid">
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Yakeey</span><span class="fit-tag fit-under">Under budget</span></div>
+        <h3>89 m² · 2 bedrooms · 3rd floor</h3>
+        <div class="price">1,650,000 DH <small>≈18,500 DH/m²</small></div>
+        <div class="meta-line">Ref. MA158534</div>
+        <a class="link" href="https://yakeey.com/fr-ma/acheter-appartement-marrakech-gueliz-MA158534" target="_blank" rel="noopener">yakeey.com/.../MA158534 →</a>
+      </div>
+
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Yakeey</span><span class="fit-tag fit-over">Slightly over</span></div>
+        <h3>234 m² · 3 bedrooms · garden+terrace</h3>
+        <div class="price">2,400,000 DH <small>≈10,300 DH/m²</small></div>
+        <div class="meta-line">Ref. MA046868 · best DH/m² of the Guéliz set</div>
+        <a class="link" href="https://yakeey.com/fr-ma/acheter-appartement-marrakech-gueliz-MA046868" target="_blank" rel="noopener">yakeey.com/.../MA046868 →</a>
+      </div>
+
+      <div class="listing-card">
+        <div class="top-row"><span class="source">Agenz</span><span class="fit-tag fit-over">Slightly over</span></div>
+        <h3>75 m² · 2 bedrooms</h3>
+        <div class="price">2,400,000 DH <small>≈32,000 DH/m²</small></div>
+        <div class="meta-line">Likely new-build/high-standing — note the DH/m² is ~3x the other Guéliz comps</div>
+        <a class="link" href="https://agenz.ma/fr/annonces/immo-marrakech/vente-appartements/gueliz/638379" target="_blank" rel="noopener">agenz.ma/.../gueliz/638379 →</a>
+      </div>
+    </div>
+
+    <h3 class="section-title">Browse for more</h3>
+    <div class="listing-grid">
+      <div class="browse-card">
+        <span class="source">Mubawab</span>
+        <h3>Guéliz apartments for sale</h3>
+        <ul>
+          <li>80–90 m² range observed at 1,080,000–2,215,000 DH</li>
+          <li>"Plaza Guéliz" building — ≈2,900,000 DH (over budget)</li>
+        </ul>
+        <a class="link" href="https://www.mubawab.ma/en/sd/marrakech/gu%C3%A9liz/apartments-for-sale" target="_blank" rel="noopener">mubawab.ma — Guéliz listings →</a>
+      </div>
+
+      <div class="browse-card">
+        <span class="source">Sarouty</span>
+        <h3>Guéliz apartments for sale</h3>
+        <ul>
+          <li>82 m², 2BR — ≈1,000,000 DH</li>
+          <li>79 m², 3BR — ≈1,400,000 DH</li>
+          <li>85 m², 2BR — ≈2,500,000 DH</li>
+          <li>154 m², 2BR — ≈2,357,500 DH</li>
+        </ul>
+        <a class="link" href="https://www.sarouty.ma/acheter/marrakech/proprietes-a-vendre-gueliz.html" target="_blank" rel="noopener">sarouty.ma — Guéliz listings →</a>
+      </div>
+
+      <div class="browse-card">
+        <span class="source">Avito</span>
+        <h3>Guéliz apartments for sale</h3>
+        <ul>
+          <li>Largest single inventory of the 6 sites for this area</li>
+        </ul>
+        <a class="link" href="https://www.avito.ma/fr/marrakech/gueliz/appartements-%C3%A0_vendre" target="_blank" rel="noopener">avito.ma — Guéliz listings →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="callout info">
+    <strong>Methodology.</strong> Listings were located via targeted search queries (site-restricted, price-banded) rather than direct page scraping — a headless browser was blocked by this environment's network policy from reaching these sites directly, and the WebFetch tool was blocked by the sites' own anti-bot protection (both return 403). Prices, sizes, and amenities shown come from search-result summaries of each listing page, not a re-fetch of the page itself, so treat every figure as "last seen," not live. No photos were reviewed — confirm condition/standing in person or via a local agent before making an offer, and expect 5-15% negotiation room off the asking price, which is standard in this market.
+  </div>
+
+  <footer>
+    Compiled June 30, 2026 from Yakeey, Agenz, Mubawab, Capalm Rabat, Avito, and Sarouty. Cross-reference with <code>RABAT_APARTMENT_ROI_ANALYSIS.md</code> and <code>MARRAKECH_APARTMENT_ROI_ANALYSIS.md</code> in this repository for the underlying yield/risk analysis.
+  </footer>
+
+</div>
+</body>
+</html>
