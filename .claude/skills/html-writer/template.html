@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report Title</title>
+<style>
+  :root {
+    --ivory: #FAF9F5;
+    --white: #FFFFFF;
+    --slate: #141413;
+    --gray-100: #F0EEE6;
+    --gray-300: #D1CFC5;
+    --gray-500: #87867F;
+    --gray-700: #3D3D3A;
+
+    --clay: #D97757;
+    --oat: #E3DACC;
+    --olive: #788C5D;
+    --rust: #B04A3F;
+    --info: #5C7CA3;
+
+    --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+    --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+
+    --radius-panel: 12px;
+    --radius-row: 8px;
+    --radius-pill: 999px;
+    --border: 1.5px solid var(--gray-300);
+    --shadow-sm: 0 1px 2px rgba(20,20,19,0.06);
+    --shadow-md: 0 4px 10px rgba(20,20,19,0.08);
+    --shadow-lg: 0 12px 28px rgba(20,20,19,0.12);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--slate);
+    background: var(--ivory);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 56px 24px 120px; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray-500);
+  }
+
+  header.hero {
+    background: var(--slate);
+    color: var(--ivory);
+    border-radius: var(--radius-panel);
+    padding: 36px 32px;
+    margin-bottom: var(--sp-6);
+  }
+  header.hero .eyebrow { color: var(--oat); opacity: 0.85; }
+  header.hero h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 8px 0 10px;
+  }
+  header.hero p.sub { margin: 0; max-width: 680px; opacity: 0.85; }
+  header.hero .meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    opacity: 0.65;
+    margin-top: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  .banner {
+    background: var(--white);
+    border: var(--border);
+    border-left: 5px solid var(--clay);
+    border-radius: var(--radius-panel);
+    padding: 22px 24px;
+    margin-bottom: var(--sp-6);
+    box-shadow: var(--shadow-sm);
+  }
+  .banner.positive { border-left-color: var(--olive); }
+  .banner.warning { border-left-color: var(--rust); }
+  .banner .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    background: var(--oat);
+    color: var(--gray-700);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 10px;
+  }
+  .banner h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 19px;
+    margin: 0 0 6px;
+  }
+  .banner p { margin: 0; color: var(--gray-700); }
+
+  section { margin-bottom: var(--sp-7); }
+  h2.section-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-500);
+    border-bottom: var(--border);
+    padding-bottom: var(--sp-2);
+    margin-bottom: var(--sp-4);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--sp-3);
+  }
+  .card {
+    background: var(--white);
+    border: var(--border);
+    border-radius: var(--radius-panel);
+    padding: 20px;
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--slate); }
+  .card .label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-500); }
+  .card .figure { font-family: var(--serif); font-size: 34px; font-weight: 500; margin: 6px 0; }
+  .card .figure small { font-family: var(--sans); font-size: 13px; font-weight: 400; color: var(--gray-500); }
+  .card .desc { font-size: 13px; color: var(--gray-700); margin-top: 4px; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--white); font-size: 13.5px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--gray-300); vertical-align: top; }
+  th {
+    background: var(--gray-100);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--gray-700);
+  }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .table-scroll { overflow-x: auto; border: var(--border); border-radius: var(--radius-panel); }
+  .table-scroll table { border-radius: 0; }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+  }
+  .tag .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .tag-low { background: #eef1e9; color: var(--olive); }
+  .tag-low .dot { background: var(--olive); }
+  .tag-medium { background: #f7e9e2; color: #a35a30; }
+  .tag-medium .dot { background: var(--clay); }
+  .tag-high { background: #f6e3e0; color: var(--rust); }
+  .tag-high .dot { background: var(--rust); }
+  .tag-info { background: #e6edf5; color: var(--info); }
+  .tag-info .dot { background: var(--info); }
+
+  .callout {
+    border-radius: var(--radius-row);
+    padding: 16px 18px;
+    font-size: 13.5px;
+    border: var(--border);
+    background: var(--gray-100);
+    color: var(--gray-700);
+  }
+  .callout.info { background: #eaf1fb; border-color: #c6d9f3; color: #1f4e8c; }
+  .callout.warning { background: #fbeee8; border-color: #ecc3ae; color: #8a3d1f; }
+  .callout strong { color: var(--slate); }
+
+  .panel-oat {
+    background: var(--oat);
+    border-radius: var(--radius-panel);
+    padding: 18px 20px;
+  }
+
+  footer {
+    margin-top: var(--sp-7);
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--gray-500);
+    border-top: var(--border);
+    padding-top: var(--sp-4);
+  }
+  footer a { color: var(--gray-500); }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 32px 16px 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Report Type · Subject</div>
+    <h1>Report Title</h1>
+    <p class="sub">One-sentence description of what this document covers and why it matters.</p>
+    <div class="meta">Generated DATE · Source notes</div>
+  </header>
+
+  <div class="banner positive">
+    <span class="badge">Headline finding</span>
+    <h2>State the single most important conclusion here</h2>
+    <p>One or two sentences of supporting detail. Use class "warning" on .banner instead of "positive" when the headline is a caution rather than a recommendation.</p>
+  </div>
+
+  <section>
+    <h2 class="section-title">Key figures</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="label">Metric label</div>
+        <div class="figure">42<small> unit</small></div>
+        <div class="desc">Short context for this number.</div>
+      </div>
+      <div class="card">
+        <div class="label">Metric label</div>
+        <div class="figure">7.3%</div>
+        <div class="desc">Short context for this number.</div>
+      </div>
+      <div class="card">
+        <div class="label">Metric label</div>
+        <div class="figure">Low</div>
+        <div class="desc">Short context for this number.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Comparison</h2>
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Value</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row label</td>
+          <td class="num">123.4</td>
+          <td><span class="tag tag-low"><span class="dot"></span>Low</span></td>
+        </tr>
+        <tr>
+          <td>Row label</td>
+          <td class="num">456.7</td>
+          <td><span class="tag tag-medium"><span class="dot"></span>Medium</span></td>
+        </tr>
+        <tr>
+          <td>Row label</td>
+          <td class="num">89.0</td>
+          <td><span class="tag tag-high"><span class="dot"></span>High</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Notes &amp; limitations</h2>
+    <div class="callout warning">
+      <strong>Caveat heading.</strong> Explain any methodology gap, data limitation, or assumption plainly — this design system favors candor over a polished-but-vague tone.
+    </div>
+  </section>
+
+  <footer>
+    Sources / methodology notes / generation timestamp go here.
+  </footer>
+
+</div>
+</body>
+</html>
