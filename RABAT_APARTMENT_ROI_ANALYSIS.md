@@ -53,6 +53,23 @@ Market-wide context: average gross rental yield for the Rabat-Salé area is arou
 
 ---
 
+## 5. Real listing-based yield validation (June 2026)
+
+To sanity-check the market-report yields above, real for-sale and for-rent listings were pulled from Mubawab and Avito and matched by comparable size to compute actual gross yields.
+
+| Neighborhood | Real sale comps (DH/m²) | Matched rent comps | Computed gross yield | Est. net yield* |
+|---|---|---|---|---|
+| **Agdal** | 15,766 – 22,667 (avg ~18,000) | Studio 35-40m² 3,100-4,500 DH/mo; 100m² furnished 13,000 DH/mo; 130m² 15,000 DH/mo | **6 – 8%** (up to ~9% on furnished small units) | ~4.5-6% |
+| **Aviation** | 14,063 – 21,429 (small units pricier/m²) | 110-120m² 8,000 DH/mo; 64m² scaled ~4,300 DH/mo | **5 – 6.5%** | ~3.5-5% |
+| **Hay Riad** | 20,476 – 27,350 (Prestigia developments) | 100-150m² Prestigia 9,500-12,000 DH/mo | **4.2 – 4.7%** | ~2.7-3.2% |
+| **Yacoub El Mansour** | 15,385 – 20,000 (small, noisy sample) | Wide/inconsistent (3,400-22,000 DH/mo across 120-190m²) | ~6 – 7% (low confidence) | ~4.5-5.5% |
+
+*Net = gross minus ~1.5-2.5 points for taxe d'habitation/professionnelle, syndic fees, ~5% vacancy, and maintenance.
+
+**Conclusion**: real listings confirm Agdal is the standout — it beats Aviation on yield (not just on safety/liquidity), particularly for furnished mid-size units rented to professionals or small unfurnished units rented to students. Hay Riad's real yield is confirmed at the low end (4.2-4.7%) — you pay for safety and prestige, not income.
+
+**Caveats**: these are asking prices/rents from live listings, not closing transactions (Moroccan sale prices typically negotiate 5-15% below asking, which would push real yields slightly higher). Sample sizes per neighborhood are small (search-based, a few listings each) — directional, not statistically robust. Before making an offer, pull 20-30 live comps directly from Mubawab/Avito filtered to your target unit size.
+
 ### Sources
 - [Carte des prix de l'immobilier à Rabat — Yakeey](https://yakeey.com/fr-ma/referentiel-de-prix-immobilier/rabat)
 - [Référentiel des prix immobiliers à Rabat — Agenz](https://agenz.ma/en/prix-immobilier-maroc/rabat)
